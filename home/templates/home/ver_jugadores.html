@@ -1,0 +1,28 @@
+{% extends 'padres/base.html' %}
+
+
+{% comment %} ACÁ ESTA LO QUE SALE EN LA PESTAÑA{% endcomment %}
+{% block titulo_pagina %}
+<title>Ver Jugadores</title>
+{% endblock titulo_pagina %}
+
+{% comment %}LE PUE ENCABEZADO A LO QUE SALE ADENTRO DE LA IMAGEN AZUL{% endcomment %}
+{% block encabezado %}
+<h1 class="mb-5">Ver Jugadores</h1>
+{% endblock encabezado %}
+
+
+{% comment %}EL RESTO DEL CONTENDIO{% endcomment %}
+{% block  mi_contenido %}
+
+<a class="navbar-brand" href={% url 'index'%}>Volver</a>
+
+<form action={% url 'ver-jugadores' %} method="POST">
+   {% csrf_token %}
+<table>
+    {{formulario}}
+</table>
+    <button>Crear</button>
+</form>
+
+{% endblock mi_contenido %}

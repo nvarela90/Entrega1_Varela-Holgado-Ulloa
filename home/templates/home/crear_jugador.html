@@ -1,0 +1,35 @@
+{% extends 'padres/base.html' %}
+
+{% comment %} ACÁ ESTA LO QUE SALE EN LA PESTAÑA{% endcomment %}
+{% block titulo_pagina %}
+<title>Crear Jugadores</title>
+{% endblock titulo_pagina %}
+
+
+{% comment %}LE PUE ENCABEZADO A LO QUE SALE ADENTRO DE LA IMAGEN AZUL{% endcomment %}
+{% block encabezado %}
+<h1 class="mb-5">Crear un jugador nuevo</h1>
+{% endblock encabezado %}
+
+
+{% comment %}FUNCIONALIDAD DE CREAR EL JUGADOR{% endcomment %}
+{% block  mi_contenido %}
+
+FORMULARIO DE CREACIÓN DE JUGADOR
+
+<a class="navbar-brand" href={% url 'index'%}>Volver</a>
+{% comment %} <a class="navbar-brand" href={% url 'index'%}>Volver</a>
+
+<form action={% url 'crear-personas' %} method="POST">
+   {% csrf_token %}
+    {% comment %}
+    Levanto los datos del formulario de forms.py
+    {% endcomment %}
+{% comment %} <table>
+    {{formulario}}
+</table>
+    <button>Crear</button>
+</form> {% endcomment %} 
+
+{% endblock mi_contenido %}
+
