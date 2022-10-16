@@ -15,21 +15,19 @@
 {% comment %}FUNCIONALIDAD DE CREAR EL JUGADOR{% endcomment %}
 {% block  mi_contenido %}
 
-FORMULARIO DE CREACIÓN DE JUGADOR
+<h2>FORMULARIO DE CREACIÓN DE JUGADOR</h2> 
 
-<a class="navbar-brand" href={% url 'index'%}>Volver</a>
-{% comment %} <a class="navbar-brand" href={% url 'index'%}>Volver</a>
-
-<form action={% url 'crear-personas' %} method="POST">
+<form action={% url 'crear-jugador' %} method="POST">
    {% csrf_token %}
     {% comment %}
     Levanto los datos del formulario de forms.py
     {% endcomment %}
-{% comment %} <table>
+<table>
     {{formulario}}
 </table>
     <button>Crear</button>
-</form> {% endcomment %} 
+    <a class="navbar-brand" href={% url 'index'%}>Volver</a>
+</form>
 
 {% endblock mi_contenido %}
 

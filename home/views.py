@@ -19,14 +19,14 @@ def crear_jugador(request):
         
             nombre = data['nombre']
             apellido = data['apellido']
-            pais = data ['pais']
+            pais = data['pais']
             edad = data['edad']
             fecha_creacion = data['fecha_creacion'] or datetime.now()
             
             jugador = Jugador(nombre=nombre, apellido=apellido, edad=edad, pais=pais, fecha_creacion=fecha_creacion)
             jugador.save()
             
-            return redirect('ver_jugadores')
+            return redirect('ver-jugadores')
     
     formulario = JugadorFormulario()
     
@@ -52,6 +52,10 @@ def ver_jugadores(request):
 #hay que crear el url y el template ver_jugadores.html
 
 
+def about(request):
+    
+    return render(request, 'home/about.html')
+  
 
 def index(request):
     

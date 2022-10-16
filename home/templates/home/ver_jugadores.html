@@ -15,14 +15,25 @@
 {% comment %}EL RESTO DEL CONTENDIO{% endcomment %}
 {% block  mi_contenido %}
 
-<a class="navbar-brand" href={% url 'index'%}>Volver</a>
+<h2>BUSCADOR DE JUGADORES</h2> 
 
-<form action={% url 'ver-jugadores' %} method="POST">
-   {% csrf_token %}
-<table>
+<form action={% url 'ver-jugadores' %} method="GET"> 
     {{formulario}}
-</table>
-    <button>Crear</button>
+    <button>Buscar</button>
+    <a class="navbar-brand" href={% url 'index'%}>Volver</a>
+
 </form>
+<p>
+    {% if jugadores %}
+
+        {% for jugador in jugadores %}
+            <li> {{jugador.nombre}} {{jugador.apellido}} {{jugador.edad}} {{jugador.pais}} {{jugador.fecha_creacion}} </li>
+        {% endfor %}
+
+    {% else %}
+        <p>no se encontraron resultados</p>
+    {% endif %}
+
+</p>
 
 {% endblock mi_contenido %}
