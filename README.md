@@ -1,0 +1,2 @@
+Este repositorio tiene todo lo solicitado en el desafio entregable "Entrega Intermedia".
+en esta pagina web tenemos el apartado de index, quienes somos, ver jugador y crear jugador cada unos con sus funcionalidades.
