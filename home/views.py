@@ -33,7 +33,6 @@ def crear_jugador(request):
     return render(request, 'home/crear_jugador.html', {'formulario': formulario})
 
 
-#hay que crear el url y el template crear_jugador.html
 
 
 def ver_jugadores(request):
@@ -49,8 +48,6 @@ def ver_jugadores(request):
     
     return render(request, 'home/ver_jugadores.html', {'jugadores': jugadores, 'formulario': formulario})
 
-#hay que crear el url y el template ver_jugadores.html
-
 
 def about(request):
     
@@ -61,4 +58,4 @@ def index(request):
     
     return render(request, 'home/index.html')
 
-#hay que crear el url y template de index.html que seria la pagina principal 
+
