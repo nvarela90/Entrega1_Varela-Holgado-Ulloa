@@ -1,0 +1,22 @@
+{% extends 'padres/base.html' %}
+
+
+{% block  titulo_pagina%}
+<title>Perfil</title>
+{% endblock titulo_pagina%}
+
+
+{% block  mi_contenido %}
+
+ <h1>Información usuario:</h1>
+<h2>
+ <li>Nombre: {{request.user.first_name}} </li>
+ <li>Apellido: {{request.user.last_name}} </li>
+ <li>e-mail: {{request.user.email}} </li>
+</h2>
+
+<p>
+<a href={% url 'editar-perfil'%}>Editar perfil</a>
+</p> 
+
+{% endblock mi_contenido %}

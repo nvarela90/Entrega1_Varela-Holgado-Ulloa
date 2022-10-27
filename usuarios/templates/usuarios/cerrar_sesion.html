@@ -1,0 +1,14 @@
+{% extends 'padres/base.html' %}
+
+
+{% block  titulo_pagina%}
+<title>Cerraste sesión</title>
+{% endblock titulo_pagina%}
+
+
+{% block  mi_contenido %}
+       
+<form action={% url 'cerrar-sesion' %} method="POST">
+ <h1>Cerraste sesión</h1>
+
+{% endblock mi_contenido %}

@@ -1,0 +1,24 @@
+{% extends 'padres/base.html' %}
+
+{% comment %} ACÁ ESTA LO QUE SALE EN LA PESTAÑA{% endcomment %}
+{% block titulo_pagina %}
+<title>Iniciar sesión</title>
+{% endblock titulo_pagina %}
+
+{% comment %}LE PUE ENCABEZADO A LO QUE SALE ADENTRO DE LA IMAGEN AZUL{% endcomment %}
+{% block encabezado %}
+<h1 class="mb-5">Inicie sesión</h1>
+{% endblock encabezado %}
+
+{% comment %}EL RESTO DEL CONTENDIO{% endcomment %}
+{% block  mi_contenido %}
+<h2>Ingrese su usuario y contraseña:</h2>
+<form action={% url 'iniciar-sesion' %} method="POST">
+    {% csrf_token %}
+    <p>
+    <table>
+        {{formulario}}
+    </table>
+    </p>
+    <button>Iniciar sesión</button>
+{% endblock mi_contenido %}
