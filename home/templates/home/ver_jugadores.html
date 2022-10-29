@@ -1,21 +1,18 @@
 {% extends 'padres/base.html' %}
 
 
-{% comment %} ACÁ ESTA LO QUE SALE EN LA PESTAÑA{% endcomment %}
-{% block titulo_pagina %}
+{% block title_pagina %}
 <title>Ver Jugadores</title>
-{% endblock titulo_pagina %}
+{% endblock title_pagina %}
 
-{% comment %}LE PUE ENCABEZADO A LO QUE SALE ADENTRO DE LA IMAGEN AZUL{% endcomment %}
 {% block encabezado %}
 <h1 class="mb-5">Ver Jugadores</h1>
 {% endblock encabezado %}
 
 
-{% comment %}EL RESTO DEL CONTENDIO{% endcomment %}
-{% block  mi_contenido %}
+{% block mi_contenido %}
 
-<h2>BUSCADOR DE JUGADORES</h2> 
+<h2>Listado de Jugadores:</h2>
 
 <form action={% url 'ver-jugadores' %} method="GET"> 
     {{formulario}}
@@ -23,17 +20,22 @@
     <a class="navbar-brand" href={% url 'index'%}>Volver</a>
 
 </form>
+
 <p>
     {% if jugadores %}
 
         {% for jugador in jugadores %}
-            <li> {{jugador.nombre}} {{jugador.apellido}} {{jugador.edad}} {{jugador.pais}} {{jugador.fecha_creacion}} </li>
+            <li>
+                {{jugador.nombre}} {{jugador.apellido}} {{jugador.edad}} {{jugador.pais}} {{jugador.fecha_creacion}}
+                <a href={% url 'editar_jugador' jugador.id %}>Editar</a>
+                <a href={% url 'eliminar_jugador' jugador.id %}>Eliminar</a>
+            </li>
         {% endfor %}
-        
-    {% else %}
-        <p>No se encontraron resultados</p>
-    {% endif %}
 
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+  
 </p>
 
 {% endblock mi_contenido %}

@@ -5,7 +5,10 @@ from home.forms import JugadorFormulario, BusquedaJugadorFormulario
 
 from home.models import Jugador
 
+from django.views.generic.edit import UpdateView, DeleteView
 
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 def crear_jugador(request):
@@ -59,3 +62,14 @@ def index(request):
     return render(request, 'home/index.html')
 
 
+class EditarJugador(UpdateView):
+    model = Jugador
+    success_url = '/jugadores/'
+    fields = ['nombre', 'apellido', 'pais', 'edad', 'fecha_creacion']
+    template_name = 'home/editar_jugador.html'
+
+
+class EliminarJugador(DeleteView):
+    model = Jugador
+    success_url = '/jugadores/'
+    template_name = 'home/eliminar_jugador.html'
