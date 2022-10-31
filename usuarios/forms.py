@@ -23,3 +23,4 @@ class EditarPerfilUsuario(forms.Form):
     email = forms.CharField(label='e-mail')
     first_name = forms.CharField(label='Nombre')
     last_name = forms.CharField(label='Apellido')
+    avatar = forms.ImageField(required = False)

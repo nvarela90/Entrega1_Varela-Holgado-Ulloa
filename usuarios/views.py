@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
 from usuarios.forms import MiFormularioDeCreacion, EditarPerfilUsuario
 from django.contrib.auth.decorators import login_required
-
+from usuarios.models import ExtensionUsuario
 
 # Create your views here.
 
@@ -40,7 +40,7 @@ def registrar(request):
 
 @login_required
 def perfil(request): 
-    
+    extensionUsuario, usuario_nuevo = ExtensionUsuario.objects.get_or_create(user = request.user)
     return render(request, 'usuarios/perfil.html',{})
 
 
@@ -50,13 +50,15 @@ def editar_perfil(request):
     user = request.user
       
     if request.method == 'POST':
-        formulario = EditarPerfilUsuario(request.POST)
+        formulario = EditarPerfilUsuario(request.POST, request.FILES)
         if formulario.is_valid():
             datos_nuevos = formulario.cleaned_data  
             user.first_name = datos_nuevos['first_name']
             user.last_name = datos_nuevos['last_name']
             user.email = datos_nuevos['email']
+            user.extensionusuario.avatar = datos_nuevos['avatar']
             
+            user.extensionusuario.save()
             user.save()
             
             return redirect('perfil')
@@ -65,7 +67,8 @@ def editar_perfil(request):
         formulario = EditarPerfilUsuario(initial={
             'first_name':request.user.first_name,
             'last_name':request.user.last_name,
-            'email':request.user.email
+            'email':request.user.email,
+            'avatar': user.extensionusuario.avatar,
             })
     
     return render(request, 'usuarios/editar-perfil.html',{'formulario':formulario})

@@ -1,6 +1,7 @@
 from django.urls import path
 from home import views
 
+
 urlpatterns = [
     
     path('', views.index, name= 'index'),
@@ -10,6 +11,5 @@ urlpatterns = [
     path('jugadores/editar/<int:pk>', views.EditarJugador.as_view(), name='editar_jugador'),
     path('jugadores/eliminar/<int:pk>', views.EliminarJugador.as_view(), name='eliminar_jugador'),
 
- 
-    
 ]    
+
