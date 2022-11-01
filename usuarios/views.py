@@ -4,6 +4,8 @@ from django.contrib.auth import login
 from usuarios.forms import MiFormularioDeCreacion, EditarPerfilUsuario
 from django.contrib.auth.decorators import login_required
 from usuarios.models import ExtensionUsuario
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
@@ -72,3 +74,8 @@ def editar_perfil(request):
             })
     
     return render(request, 'usuarios/editar-perfil.html',{'formulario':formulario})
+
+
+class CambiarContrasenia(LoginRequiredMixin, PasswordChangeView):
+    template_name = 'usuarios/cambiar_contrasenia.html'
+    success_url = '/usuarios/perfil/'

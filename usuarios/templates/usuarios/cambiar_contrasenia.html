@@ -1,0 +1,20 @@
+{% extends 'padres/base.html' %}
+
+
+{% block  titulo_pagina%}
+<title>Cambiar Contrasenia</title>
+{% endblock titulo_pagina%}
+
+
+{% block  mi_contenido %}
+       
+<form action={% url 'cambiar-contrasenia' %} method="POST" enctype = 'multipart/form-data'>
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    
+    <button>Cambiar contrasenia</button>
+</form>
+
+{% endblock mi_contenido %}
