@@ -1,0 +1,21 @@
+{% extends 'padres/base.html' %}
+
+{% block  titulo_pagina%}
+<title>Ver el jugador</title>
+{% endblock titulo_pagina%}
+
+{% block h1_texto_header %}
+Ver detalle jugador
+{% endblock h1_texto_header %}
+
+{% block mi_contenido %}
+<p>
+<li>nombre : {{jugador.nombre}}</li>
+<li>apellido : {{jugador.apellido}}</li>
+<li>edad : {{jugador.edad}}</li>
+<li> pais : {{jugador.pais}}</li>
+<li> fecha creacion : {{jugador.fecha_creacion}}</li>
+<li>descripcion: {{jugador.descripcion | safe}}</li>
+</p> 
+{% endblock mi_contenido %}
+

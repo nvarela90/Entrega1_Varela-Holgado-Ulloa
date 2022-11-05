@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class Jugador(models.Model):
     nombre = models.CharField(max_length=30)
@@ -6,3 +7,4 @@ class Jugador(models.Model):
     pais = models.CharField(max_length=30)
     edad = models.IntegerField()
     fecha_creacion = models.DateField(null=True)
+    descripcion = RichTextField(null = True)

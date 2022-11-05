@@ -21,7 +21,8 @@
    {% csrf_token %}
     
 <table>
-    {{formulario}}
+    {{form.media}}
+    {{form}}
 </table>
     <button>Crear</button>
     <a class="navbar-brand" href={% url 'index'%}>Volver</a>
