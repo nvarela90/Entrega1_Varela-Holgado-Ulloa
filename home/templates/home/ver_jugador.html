@@ -1,0 +1,28 @@
+{% extends 'padres/base.html' %}
+
+{% block  titulo_pagina%}
+<title>Ver jugador</title>
+{% endblock titulo_pagina%}
+
+{% block h1_texto_header %}
+Ver detalle jugador
+{% endblock h1_texto_header %}
+
+{% block mi_contenido %}
+<p>
+<li>Nombre : {{jugador.nombre}}</li>
+<li>Apellido : {{jugador.apellido}}</li>
+<li>Edad : {{jugador.edad}}</li>
+<li>Pais : {{jugador.pais}}</li>
+<li>Fecha creacion : {{jugador.fecha_creacion}}</li>
+<li>Descripcion: {{jugador.descripcion | safe}}</li>
+<li>Autor: {{jugador.autor}}</li>
+<li>{% if  jugador.imagen %}
+    <img src="{{jugador.imagen.url}}" alt="{{jugador.nombre}}">
+    {% else %}
+    IMAGEN NO CARGADA
+    {% endif %}
+ </li>
+</p> 
+{% endblock mi_contenido %}
+

@@ -8,3 +8,5 @@ class Jugador(models.Model):
     edad = models.IntegerField()
     fecha_creacion = models.DateField(null=True)
     descripcion = RichTextField(null = True)
+    autor = models.CharField(max_length=30, null = True)
+    imagen = models.ImageField(upload_to='jugadores', null = True, blank = True)

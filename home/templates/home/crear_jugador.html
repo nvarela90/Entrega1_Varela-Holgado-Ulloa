@@ -17,7 +17,7 @@
 
 <h2>Formulario de Creación de Jugadores</h2> 
 
-<form action={% url 'crear-jugador' %} method="POST">
+<form action={% url 'crear-jugador' %} method="POST" enctype="multipart/form-data">
    {% csrf_token %}
     
 <table>

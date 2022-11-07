@@ -11,36 +11,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 
 
-# def crear_jugador(request):
-    
-#     if request.method == 'POST':
-        
-#         formulario = JugadorFormulario(request.POST)
-        
-#         if formulario.is_valid():
-#             data = formulario.cleaned_data
-        
-#             nombre = data['nombre']
-#             apellido = data['apellido']
-#             pais = data['pais']
-#             edad = data['edad']
-#             fecha_creacion = data['fecha_creacion'] or datetime.now()
-            
-#             jugador = Jugador(nombre=nombre, apellido=apellido, edad=edad, pais=pais, fecha_creacion=fecha_creacion)
-#             jugador.save()
-            
-#             return redirect('ver-jugadores')
-    
-#     formulario = JugadorFormulario()
-    
-#     return render(request, 'home/crear_jugador.html', {'formulario': formulario})
-
-#V2:
-class CrearJugador(CreateView):
+class CrearJugador(LoginRequiredMixin, CreateView):
     model = Jugador
     success_url = '/jugadores/'
     template_name = 'home/crear_jugador.html'
-    fields = ['nombre','apellido','pais','edad','fecha_creacion','descripcion']
+    fields = ['nombre','apellido','pais','edad','fecha_creacion','descripcion', 'autor', 'imagen']
 
 
 def ver_jugadores(request):
@@ -67,14 +42,14 @@ def index(request):
     return render(request, 'home/index.html')
 
 
-class EditarJugador(UpdateView):
+class EditarJugador(LoginRequiredMixin, UpdateView):
     model = Jugador
     success_url = '/jugadores/'
     fields = ['nombre', 'apellido', 'pais', 'edad', 'fecha_creacion','descripcion']
     template_name = 'home/editar_jugador.html'
 
 
-class EliminarJugador(DeleteView):
+class EliminarJugador(LoginRequiredMixin, DeleteView):
     model = Jugador
     success_url = '/jugadores/'
     template_name = 'home/eliminar_jugador.html'
@@ -82,4 +57,4 @@ class EliminarJugador(DeleteView):
 
 class VerJugador(DetailView):
     model = Jugador
-    template_name = 'home/ver_el_jugador.html'
+    template_name = 'home/ver_jugador.html'
