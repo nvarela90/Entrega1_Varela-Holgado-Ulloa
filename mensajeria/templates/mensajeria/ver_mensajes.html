@@ -1,0 +1,25 @@
+{% extends 'padres/base.html' %}
+
+{% block title_pagina %}
+<title>Ver Mensajes</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+<a class="navbar-brand" href={% url 'crear-mensaje' %}>Crear Mensaje</a>
+<p>Listado de Mensajes:</p>
+
+<p>
+    {% if object_list %}
+
+        {% for mensaje in object_list %}
+            <li>
+                <a href={% url 'ver-mensaje' mensaje.id %}>Mensaje de {{mensaje.emisor}} para {{mensaje.receptor}}</a>
+            </li>
+        {% endfor %}
+
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+
+</p>
+{% endblock mi_contenido %}

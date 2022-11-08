@@ -1,0 +1,17 @@
+{% extends 'padres/base.html' %}
+
+{% block title_pagina %}
+<title>Crear Mensaje</title>
+{% endblock title_pagina %}
+
+
+{% block mi_contenido %}
+<form action={% url 'crear-mensaje' %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{form.media}}
+        {{form}}
+    </table>
+    <button>Crear</button>
+</form>
+{% endblock mi_contenido %}

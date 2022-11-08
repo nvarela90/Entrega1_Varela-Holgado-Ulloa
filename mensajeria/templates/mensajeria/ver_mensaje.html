@@ -1,0 +1,13 @@
+{% extends 'padres/base.html' %}
+
+{% block title_pagina %}
+<title>Mensaje</title>
+{% endblock title_pagina %}
+
+{% block mi_contenido %}
+<p>
+    <li>Mensaje: {{mensaje.texto | safe }}</li>
+    <li>De: {{mensaje.emisor}}</li>
+    <li>Para: {{mensaje.receptor}}</li>
+</p>
+{% endblock mi_contenido %}
