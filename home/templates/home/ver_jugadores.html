@@ -17,7 +17,7 @@
 <form action={% url 'ver-jugadores' %} method="GET"> 
     {{formulario}}
     <button>Buscar</button>
-    <a class="navbar-brand" href={% url 'index'%}>Volver</a>
+    
 
 </form>
 
@@ -37,5 +37,6 @@
     {% endif %}
   
 </p>
+<a class="navbar-brand" href={% url 'index'%}>Volver</a>
 
 {% endblock mi_contenido %}

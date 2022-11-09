@@ -8,10 +8,12 @@
 {% block mi_contenido %}
 <form action={% url 'editar_jugador' jugador.id %} method="POST">
     {% csrf_token %}
+
     <table>
         {{form.media}}
         {{form}}
     </table>
     <button>Editar</button>
+    <a class="navbar-brand" href={% url 'ver-jugadores'%}>Volver</a>
 </form>
 {% endblock mi_contenido %}

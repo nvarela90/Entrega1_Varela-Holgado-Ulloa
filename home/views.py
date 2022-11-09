@@ -1,14 +1,10 @@
-from django.shortcuts import render, redirect
-from datetime import datetime
-
-from home.forms import JugadorFormulario, BusquedaJugadorFormulario
-
+from django.shortcuts import render
+from home.forms import BusquedaJugadorFormulario
 from home.models import Jugador
-
 from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from django.views.generic import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.decorators import login_required
+
 
 
 class CrearJugador(LoginRequiredMixin, CreateView):

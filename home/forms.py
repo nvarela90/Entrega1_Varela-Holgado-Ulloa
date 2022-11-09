@@ -1,6 +1,6 @@
 from django import forms
 from ckeditor.fields import RichTextFormField
-from datetime import datetime
+
 
 class JugadorFormulario(forms.Form):
     nombre = forms.CharField(max_length=30)
